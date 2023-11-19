@@ -1,4 +1,4 @@
-#include "Multilista.h"
+#include "MultilistaEmpleados.h"
 #include "iostream"
 #include <utility>
 
@@ -6,7 +6,7 @@
  * En este constructor se inicializa todo, las cabeceras, los arboles y demás
  * @param max Tamaño maximo de los arreglos
  */
-Multilista::Multilista(int max) {
+MultilistaEmpleados::MultilistaEmpleados(int max) {
     // Se inicializa el arreglo que va contener los empleados
     empleados = new Empleado[max];
 
@@ -67,7 +67,7 @@ Multilista::Multilista(int max) {
  * Aqui se agrega un empleado a lista e invoco todos los metodo privados para organizar los datos
  * @param empleado Empleado
  */
-void Multilista::AgregarEmpleado(Empleado empleado)
+void MultilistaEmpleados::AgregarEmpleado(Empleado empleado)
 {
     empleados[posLibre] = std::move(empleado);
 
@@ -110,7 +110,7 @@ void Multilista::AgregarEmpleado(Empleado empleado)
     posLibre++;
 }
 
-void Multilista::OrganizarSexo()
+void MultilistaEmpleados::OrganizarSexo()
 {
     int indiceSexo = (empleados[posLibre].sexo == 'M')? 0:1;
 
@@ -128,7 +128,7 @@ void Multilista::OrganizarSexo()
     }
 }
 
-void Multilista::OrganizarPorAtributo(
+void MultilistaEmpleados::OrganizarPorAtributo(
         RBTree<std::string,int>*& arbol,
         Cabecera<std::string>*& cabecera,
         std::string Empleado::*atributo,
@@ -152,7 +152,7 @@ void Multilista::OrganizarPorAtributo(
     }
 }
 
-void Multilista::OrganizarNumeroHijos() {
+void MultilistaEmpleados::OrganizarNumeroHijos() {
     int numHijos = empleados[posLibre].numHijos;
     int indiceCabecera = (numHijos == 0) ? 0 : ((numHijos <= 2) ? 1 : ((numHijos <= 4) ? 2 : 3));
 
@@ -167,7 +167,7 @@ void Multilista::OrganizarNumeroHijos() {
     }
 }
 
-void Multilista::OrganizarEdad() {
+void MultilistaEmpleados::OrganizarEdad() {
     int edad = empleados[posLibre].edad;
     int indiceCabecera = (edad >= 18 && edad <= 24) ? 0 : ((edad >= 25 && edad <= 35) ? 1 : ((edad >= 36 && edad <= 45) ? 2 : ((edad >= 46 && edad <= 60) ? 3 : 4)));
 
@@ -183,9 +183,9 @@ void Multilista::OrganizarEdad() {
     }
 }
 
-int Multilista::getNumEmpleados() const {return posLibre;}
+int MultilistaEmpleados::getNumEmpleados() const {return posLibre;}
 
-void Multilista::ImprimirSexo(char sexo)
+void MultilistaEmpleados::ImprimirSexo(char sexo)
 {
     int indiceSexo = (sexo == 'M') ? 0 : 1;
 
@@ -198,7 +198,7 @@ void Multilista::ImprimirSexo(char sexo)
     }
 }
 
-void Multilista::ImprimirActividad(std::string ciudad) {
+void MultilistaEmpleados::ImprimirActividad(std::string ciudad) {
 
     if(arbolCiudadNacimiento->findNodo((ciudad))!= nullptr)
     {
@@ -219,7 +219,7 @@ void Multilista::ImprimirActividad(std::string ciudad) {
 
 }
 
-void Multilista::ImprimirEmpleadosPorNumHijos(int rangoInicio, int rangoFin) {
+void MultilistaEmpleados::ImprimirEmpleadosPorNumHijos(int rangoInicio, int rangoFin) {
     int indiceCabecera;
 
     if (rangoInicio == 0) {

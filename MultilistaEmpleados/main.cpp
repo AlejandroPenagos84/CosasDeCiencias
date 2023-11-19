@@ -1,7 +1,7 @@
 #include <iostream>
-#include "Empleado.h"
-#include "Multilista.h"
-#include "MultilistaHijo.h"
+#include "Estructuras/Empleado.h"
+#include "Multilistas/MultilistaEmpleados.h"
+#include "Multilistas/MultilistaHijo.h"
 
 int main() {
 
@@ -33,7 +33,7 @@ int main() {
 
     // Imprimir los valores para verificar
 
-    Multilista Empleados(6);
+    MultilistaEmpleados Empleados(6);
     // Crear un objeto Empleado con nombre y sexo inicializados
     Empleado empleado1{
             "Juan",
@@ -97,7 +97,7 @@ int main() {
     };
     empleado5.hijos.AgregarHijo(hijoInicializado5);
 
-    Multilista multilista(6);
+    MultilistaEmpleados multilista(6);
 
     multilista.AgregarEmpleado(empleado1);
     multilista.AgregarEmpleado(empleado2);

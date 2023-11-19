@@ -4,14 +4,14 @@ project(MultilistaEmpleados)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(MultilistaEmpleados main.cpp
-        Empleado.h
-        Multilista.h
-        Multilista.cpp
+        Estructuras/Empleado.h
+        Multilistas/MultilistaEmpleados.h
+        Multilistas/MultilistaEmpleados.cpp
         Librerias/Arbol.h
         Librerias/Cola.h
         Librerias/Cola.h
         Librerias/Edad.h
-        Hijo.h
-        MultilistaHijo.h
-        MultilistaHijo.cpp
+        Estructuras/Hijo.h
+        Multilistas/MultilistaHijo.h
+        Multilistas/MultilistaHijo.cpp
         Librerias/Cabecera.h)

@@ -1,8 +1,8 @@
 #ifndef EMPLEADO_H
 #define EMPLEADO_H
 #include <string>
-#include "Librerias/Edad.h"
-#include "MultilistaHijo.h"
+#include "../Librerias/Edad.h"
+#include "../Multilistas/MultilistaHijo.h"
 
 struct Empleado {
     //int pk;

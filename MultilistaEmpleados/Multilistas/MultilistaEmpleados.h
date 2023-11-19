@@ -1,11 +1,11 @@
-#ifndef MULTILISTAEMPLEADOS_MULTILISTA_H
-#define MULTILISTAEMPLEADOS_MULTILISTA_H
-#include "Empleado.h"
-#include "Librerias/Arbol.h"
-#include "Librerias/Cabecera.h"
+#ifndef MULTILISTAEMPLEADOS_MULTILISTAEMPLEADOS_H
+#define MULTILISTAEMPLEADOS_MULTILISTAEMPLEADOS_H
+#include "../Estructuras/Empleado.h"
+#include "../Librerias/Arbol.h"
+#include "../Librerias/Cabecera.h"
 
 
-class Multilista {
+class MultilistaEmpleados {
     private:
         Empleado* empleados;
 
@@ -46,7 +46,7 @@ class Multilista {
     // el imprimir mas generico o en caso de que sea necesario entregar una cola o pila o lista,
     // sobretodo al momento de buscar, asi se hará mas chevere y sencillo para las consultas
 
-        explicit Multilista(int);
+        explicit MultilistaEmpleados(int);
         void AgregarEmpleado(Empleado);
         int getNumEmpleados() const;
         void ImprimirSexo(char);
@@ -64,4 +64,4 @@ class Multilista {
         void OrganizarNumeroHijos();
         void OrganizarEdad();
 };
-#endif //MULTILISTAEMPLEADOS_MULTILISTA_H
+#endif //MULTILISTAEMPLEADOS_MULTILISTAEMPLEADOS_H
