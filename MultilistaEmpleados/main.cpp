@@ -10,7 +10,8 @@ int main() {
             "Ingles",
             "Sucursal1",
             "Barrio1",
-            1
+            1,
+            "21/12/2001"
     };
 
     Empleado empleadoInicializado2{
@@ -20,7 +21,8 @@ int main() {
             "Matematicas",
             "Sucursal2",
             "Barrio2",
-            1
+            1,
+            "21/12/2002"
     };
 
     Empleado empleadoInicializado3{
@@ -30,7 +32,8 @@ int main() {
             "Artes",
             "Sucursal3",
             "Barrio3",
-            1
+            1,
+            "21/12/2003"
     };
 
     Empleado empleadoInicializado4{
@@ -40,7 +43,8 @@ int main() {
             "Artes",
             "Sucursal4",
             "Barrio4",
-            1
+            1,
+            "21/12/2004"
     };
 
     Empleado empleadoInicializado5{
@@ -50,7 +54,8 @@ int main() {
             "Artes",
             "Sucursal5",
             "Barrio5",
-            1
+            1,
+            "21/12/2005"
     };
 
     Multilista multilista(6);

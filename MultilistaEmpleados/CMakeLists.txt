@@ -9,4 +9,5 @@ add_executable(MultilistaEmpleados main.cpp
         Multilista.cpp
         Librerias/Arbol.h
         Librerias/Cola.h
-        Librerias/Cola.h)
+        Librerias/Cola.h
+        Librerias/Edad.h)

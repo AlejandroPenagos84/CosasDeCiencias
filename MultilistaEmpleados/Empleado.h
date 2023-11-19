@@ -1,6 +1,7 @@
 #ifndef EMPLEADO_H
 #define EMPLEADO_H
 #include <string>
+#include "Librerias/Edad.h"
 
 struct Empleado {
     //int pk;
@@ -14,7 +15,7 @@ struct Empleado {
     //std::string telefonoCelular;
     //std::string telefonoFijo;
     //std::string email;
-    //std::string fechaNacimiento;
+
     std::string ciudadNacimiento;
     //std::string paisNacimiento;
     //std::string ciudadResidencia;
@@ -26,12 +27,15 @@ struct Empleado {
     std::string sucursalTrabajo;
     std::string barrio;
     int numHijos;
-    //int edad;
+    std::string fechaNacimiento;
+    int edad = calcularEdad(obtenerFechaDesdeString(fechaNacimiento));
 
+
+    // Estas variable se inicializan con 0 para evitar doble asignacion
+    // Con estas se va manejar la posicion del siguiente dato segun la caracteristica de este
     int sigSexo{-1};
     int sigActividadLaboral{-1};
-   // int numeroDeHijos{-1};
-   // int sigEdad{-1};
+    int sigEdad{-1};
     int sigNombreSurcursal{-1};
     int sigCiudadNacimiento{-1};
     int sigBarrio{-1};

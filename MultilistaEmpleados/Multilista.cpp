@@ -2,15 +2,24 @@
 #include "iostream"
 #include <utility>
 
+/**
+ * En este constructor se inicializa todo, las cabeceras, los arboles y demás
+ * @param max Tamaño maximo de los arreglos
+ */
 Multilista::Multilista(int max) {
+    // Se inicializa el arreglo que va contener los empleados
     empleados = new Empleado[max];
+
+    // Se inicializan los arreglos que serán las cabeceras por cada atributo
     CSexo = new Cabecera<char>[2];
     CActividadLaboral = new Cabecera<std::string>[max];
-    CNumeroHijos = new Cabecera<std::string>[4];
-    CBarrio = new Cabecera<std::string>[max];
-    CEdad = new Cabecera<int>[5];
     CCiudadNacimiento = new Cabecera<std::string>[max];
+    CBarrio = new Cabecera<std::string>[max];
     CSucursal = new Cabecera<std::string >[max];
+    CNumeroHijos = new Cabecera<std::string>[4];
+    CEdad = new Cabecera<std::string>[5];
+
+
 
     // Inicializar Posicion Libre
     posLibre = 0;
@@ -20,6 +29,7 @@ Multilista::Multilista(int max) {
     indiceCiudadNacimiento = 0;
     indiceBarrio = 0;
     indiceSucursal = 0;
+
   //Inicializar Arreglos
     //Cabecera para organizar por sezo
     CSexo[0] = {'M',-1};
@@ -32,11 +42,19 @@ Multilista::Multilista(int max) {
     CBarrio[0] = {"",-1};
     CSucursal[0] = {"",-1};
 
-    //Cabecera para organizar por numeros
+    //Cabecera para organizar por numero de hijos
     CNumeroHijos[0] = {"Sin Hijos",-1};
     CNumeroHijos[1] = {"1 a 2",-1};
     CNumeroHijos[2] = {"3 a 4",-1};
     CNumeroHijos[3] = {"Mas de 4",-1};
+
+    //Cabecera para edad
+    CEdad[0] = {"18 a 24",-1};
+    CEdad[1] = {"25 a 35",-1};
+    CEdad[2] = {"36 a 45",-1};
+    CEdad[3] = {"46 a 60",-1};
+    CEdad[4] = {"Mas de 60",-1};
+
 
     // Inicializar Arboles
     arbolActividad = new RBTree<std::string,int>();
@@ -45,6 +63,10 @@ Multilista::Multilista(int max) {
     arbolSucursales = new RBTree<std::string,int>();
 }
 
+/**
+ * Aqui se agrega un empleado a lista e invoco todos los metodo privados para organizar los datos
+ * @param empleado Empleado
+ */
 void Multilista::AgregarEmpleado(Empleado empleado)
 {
     empleados[posLibre] = std::move(empleado);
@@ -80,7 +102,11 @@ void Multilista::AgregarEmpleado(Empleado empleado)
                          indiceSucursal,
                          &Empleado::sigNombreSurcursal);
 
+    // Organizar Por Numero de Hijos
     OrganizarNumeroHijos();
+
+    //Organizar Por edad
+    OrganizarEdad();
     posLibre++;
 }
 
@@ -126,6 +152,36 @@ void Multilista::OrganizarPorAtributo(
     }
 }
 
+void Multilista::OrganizarNumeroHijos() {
+    int numHijos = empleados[posLibre].numHijos;
+    int indiceCabecera = (numHijos == 0) ? 0 : ((numHijos <= 2) ? 1 : ((numHijos <= 4) ? 2 : 3));
+
+    if (CNumeroHijos[indiceCabecera].indice == -1) {
+        CNumeroHijos[indiceCabecera].indice = posLibre;
+    } else {
+        int indiceC = CNumeroHijos[indiceCabecera].indice;
+        while (empleados[indiceC].sigNumHijos != -1)
+            indiceC = empleados[indiceC].sigNumHijos;
+
+        empleados[indiceC].sigNumHijos = posLibre;
+    }
+}
+
+void Multilista::OrganizarEdad() {
+    int edad = empleados[posLibre].edad;
+    int indiceCabecera = (edad >= 18 && edad <= 24) ? 0 : ((edad == 25) ? 1 : ((edad >= 36 && edad <= 45) ? 2 : ((edad >= 46 && edad <= 60) ? 3 : 4)));
+
+    if (CEdad[indiceCabecera].indice == -1) {
+        CEdad[indiceCabecera].indice = posLibre;
+    } else {
+        int indiceC = CEdad[indiceCabecera].indice;
+        while (empleados[indiceC].sigEdad != -1)
+            indiceC = empleados[indiceC].sigEdad;
+
+        empleados[indiceC].sigEdad = posLibre;
+    }
+}
+
 void Multilista::ImprimirSexo(char sexo)
 {
     int indiceSexo = (sexo == 'M') ? 0 : 1;
@@ -159,30 +215,6 @@ void Multilista::ImprimirActividad(std::string ciudad) {
 
 }
 
-void Multilista::OrganizarNumeroHijos() {
-    int numHijos = empleados[posLibre].numHijos;
-    int indiceCabecera;
-
-    if (numHijos == 0)
-        indiceCabecera = 0;
-    else if (numHijos >= 1 && numHijos <= 2)
-        indiceCabecera = 1;
-    else if (numHijos >= 3 && numHijos <= 4)
-        indiceCabecera = 2;
-    else
-        indiceCabecera = 3;
-
-    if (CNumeroHijos[indiceCabecera].indice == -1) {
-        CNumeroHijos[indiceCabecera].indice = posLibre;
-    } else {
-        int indiceC = CNumeroHijos[indiceCabecera].indice;
-        while (empleados[indiceC].sigNumHijos != -1)
-            indiceC = empleados[indiceC].sigNumHijos;
-
-        empleados[indiceC].sigNumHijos = posLibre;
-    }
-}
-
 void Multilista::ImprimirEmpleadosPorNumHijos(int rangoInicio, int rangoFin) {
     int indiceCabecera;
 
@@ -204,6 +236,7 @@ void Multilista::ImprimirEmpleadosPorNumHijos(int rangoInicio, int rangoFin) {
         std::cout << empleados[indice].sexo << std::endl;
         std::cout << empleados[indice].ciudadNacimiento << std::endl;
         std::cout << empleados[indice].numHijos << std::endl;
+        std::cout << empleados[indice].edad<< std::endl;
         indice = empleados[indice].sigNumHijos;
     }
 }
