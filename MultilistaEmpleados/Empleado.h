@@ -24,7 +24,6 @@ struct Empleado {
     //
     //char tieneHijos;
     std::string actividadLaboral;
-
     std::string sucursalTrabajo;
     std::string barrio;
     int numHijos;
