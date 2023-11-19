@@ -14,22 +14,44 @@ class Multilista {
 
         // Arreglos de Cabeceras
         Cabecera<char>* CSexo;
-        Cabecera<std::string>* CLocalidad;
+        Cabecera<std::string>* CBarrio;
         Cabecera<std::string>* CActividadLaboral;
         Cabecera<int>* CEdad;
-        Cabecera<int>* CNumeroHijos;
+        Cabecera<std::string>* CNumeroHijos;
         Cabecera<std::string>* CSucursal;
         Cabecera<std::string>* CCiudadNacimiento;
 
-        RBTree<std::string ,int>* arbolActividad;
-        //Variable que servira
+
+        // PosicionLibre
         int posLibre;
+
+        //Indices de las cabeceras
         int indiceActividadLaboral;
+        int indiceCiudadNacimiento;
+        int indiceBarrio;
+        int indiceSucursal;
+
+
+        // Arboles
+        RBTree<std::string ,int>* arbolActividad;
+        RBTree<std::string ,int>* arbolCiudadNacimiento;
+        RBTree<std::string, int>* arbolBarrio;
+        RBTree<std::string, int>* arbolSucursales;
     public:
         Multilista(int);
         void AgregarEmpleado(Empleado);
         void ImprimirSexo(char);
         void ImprimirActividad(std::string);
+        void ImprimirEmpleadosPorNumHijos(int,int);
+
+    private:
+        void OrganizarSexo();
+        void OrganizarPorAtributo(  RBTree<std::string,int>*&,
+                                    Cabecera<std::string>*&,
+                                    std::string Empleado::*,
+                                    int&,
+                                    int Empleado::*);
+        void OrganizarNumeroHijos();
 };
 
 
