@@ -4,77 +4,7 @@
 #include "MultilistaHijo.h"
 
 int main() {
-    /*
-    // Crear un objeto Empleado con nombre y sexo inicializados
-    Empleado empleadoInicializado1{
-            "Juan",
-            'M',
-            "Ciudad1",
-            "Ingles",
-            "Sucursal1",
-            "Barrio1",
-            1,
-            "21/12/2001"
-    };
 
-    Empleado empleadoInicializado2{
-            "Maria",
-            'F',
-            "Ciudad2",
-            "Matematicas",
-            "Sucursal2",
-            "Barrio2",
-            1,
-            "21/12/2002"
-    };
-
-    Empleado empleadoInicializado3{
-            "Carlos",
-            'M',
-            "Ciudad3",
-            "Artes",
-            "Sucursal3",
-            "Barrio3",
-            1,
-            "21/12/2003"
-    };
-
-    Empleado empleadoInicializado4{
-            "Janeth",
-            'F',
-            "Ciudad4",
-            "Artes",
-            "Sucursal4",
-            "Barrio4",
-            1,
-            "21/12/2004"
-    };
-
-    Empleado empleadoInicializado5{
-            "Marcelo",
-            'M',
-            "Ciudad5",
-            "Artes",
-            "Sucursal5",
-            "Barrio5",
-            1,
-            "21/12/2005"
-    };
-
-    Multilista multilista(6);
-
-    multilista.AgregarEmpleado(empleadoInicializado1);
-    multilista.AgregarEmpleado(empleadoInicializado2);
-    multilista.AgregarEmpleado(empleadoInicializado3);
-    multilista.AgregarEmpleado(empleadoInicializado4);
-    multilista.AgregarEmpleado(empleadoInicializado5);
-
-    multilista.ImprimirEmpleadosPorNumHijos(1,2);
-
-    std::cout<<multilista.getNumEmpleados()<<std::endl;
-
-
-    */
     MultilistaHijo multilistaHijo(6);
     Hijo hijoInicializado1{
             "Hijo1",
@@ -101,14 +31,81 @@ int main() {
             "21/12/2015"
     };
 
-    multilistaHijo.AgregarHijo(hijoInicializado1);
-    multilistaHijo.AgregarHijo(hijoInicializado2);
-    multilistaHijo.AgregarHijo(hijoInicializado3);
-    multilistaHijo.AgregarHijo(hijoInicializado4);
-    multilistaHijo.AgregarHijo(hijoInicializado5);
-
-    multilistaHijo.ImprimirEdad(6,10);
     // Imprimir los valores para verificar
+
+    Multilista Empleados(6);
+    // Crear un objeto Empleado con nombre y sexo inicializados
+    Empleado empleado1{
+            "Juan",
+            'M',
+            "Ciudad1",
+            "Ingles",
+            "Sucursal1",
+            "Barrio1",
+            1,
+            "21/12/2001",
+
+    };
+    empleado1.hijos.AgregarHijo(hijoInicializado1);
+
+    Empleado empleado2{
+            "Maria",
+            'F',
+            "Ciudad2",
+            "Matematicas",
+            "Sucursal2",
+            "Barrio2",
+            1,
+            "21/12/2002"
+    };
+    empleado2.hijos.AgregarHijo(hijoInicializado2);
+
+    Empleado empleado3{
+            "Carlos",
+            'M',
+            "Ciudad3",
+            "Artes",
+            "Sucursal3",
+            "Barrio3",
+            1,
+            "21/12/2003"
+    };
+    empleado3.hijos.AgregarHijo(hijoInicializado3);
+
+    Empleado empleado4{
+            "Janeth",
+            'F',
+            "Ciudad4",
+            "Artes",
+            "Sucursal4",
+            "Barrio4",
+            1,
+            "21/12/2004"
+    };
+
+    empleado4.hijos.AgregarHijo(hijoInicializado4);
+
+    Empleado empleado5{
+            "Marcelo",
+            'M',
+            "Ciudad5",
+            "Artes",
+            "Sucursal5",
+            "Barrio5",
+            1,
+            "21/12/2005"
+    };
+    empleado5.hijos.AgregarHijo(hijoInicializado5);
+
+    Multilista multilista(6);
+
+    multilista.AgregarEmpleado(empleado1);
+    multilista.AgregarEmpleado(empleado2);
+    multilista.AgregarEmpleado(empleado3);
+    multilista.AgregarEmpleado(empleado4);
+    multilista.AgregarEmpleado(empleado5);
+
+    multilista.ImprimirActividad("Ciudad5");
 
     return 0;
 }

@@ -209,6 +209,7 @@ void Multilista::ImprimirActividad(std::string ciudad) {
             std::cout << empleados[indice].nombre << std::endl;
             std::cout << empleados[indice].sexo << std::endl;
             std::cout << empleados[indice].ciudadNacimiento<< std::endl;
+            empleados[indice].hijos.ImprimirEdad(6,10);
             indice = empleados[indice].sigCiudadNacimiento;
         }
     }else

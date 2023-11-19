@@ -2,6 +2,7 @@
 #define EMPLEADO_H
 #include <string>
 #include "Librerias/Edad.h"
+#include "MultilistaHijo.h"
 
 struct Empleado {
     //int pk;
@@ -28,6 +29,7 @@ struct Empleado {
     std::string barrio;
     int numHijos;
     std::string fechaNacimiento;
+    MultilistaHijo hijos{numHijos};
     int edad = calcularEdad(obtenerFechaDesdeString(fechaNacimiento));
 
 
