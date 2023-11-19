@@ -169,7 +169,8 @@ void Multilista::OrganizarNumeroHijos() {
 
 void Multilista::OrganizarEdad() {
     int edad = empleados[posLibre].edad;
-    int indiceCabecera = (edad >= 18 && edad <= 24) ? 0 : ((edad == 25) ? 1 : ((edad >= 36 && edad <= 45) ? 2 : ((edad >= 46 && edad <= 60) ? 3 : 4)));
+    int indiceCabecera = (edad >= 18 && edad <= 24) ? 0 : ((edad >= 25 && edad <= 35) ? 1 : ((edad >= 36 && edad <= 45) ? 2 : ((edad >= 46 && edad <= 60) ? 3 : 4)));
+
 
     if (CEdad[indiceCabecera].indice == -1) {
         CEdad[indiceCabecera].indice = posLibre;
@@ -181,6 +182,8 @@ void Multilista::OrganizarEdad() {
         empleados[indiceC].sigEdad = posLibre;
     }
 }
+
+int Multilista::getNumEmpleados() const {return posLibre;}
 
 void Multilista::ImprimirSexo(char sexo)
 {

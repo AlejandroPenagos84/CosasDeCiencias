@@ -2,12 +2,8 @@
 #define MULTILISTAEMPLEADOS_MULTILISTA_H
 #include "Empleado.h"
 #include "Librerias/Arbol.h"
+#include "Librerias/Cabecera.h"
 
-template<class T>
-struct Cabecera{
-    T atributo;
-    int indice;
-};
 
 class Multilista {
     private:
@@ -52,6 +48,7 @@ class Multilista {
 
         explicit Multilista(int);
         void AgregarEmpleado(Empleado);
+        int getNumEmpleados() const;
         void ImprimirSexo(char);
         void ImprimirActividad(std::string);
         void ImprimirEmpleadosPorNumHijos(int,int);
