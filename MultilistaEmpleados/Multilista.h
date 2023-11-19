@@ -18,16 +18,18 @@ class Multilista {
         Cabecera<std::string>* CActividadLaboral;
         Cabecera<int>* CEdad;
         Cabecera<int>* CNumeroHijos;
-        Cabecera<std::string>* {}CSucursal;
+        Cabecera<std::string>* CSucursal;
         Cabecera<std::string>* CCiudadNacimiento;
 
+        RBTree<std::string ,int>* arbolActividad;
         //Variable que servira
         int posLibre;
+        int indiceActividadLaboral;
     public:
         Multilista(int);
         void AgregarEmpleado(Empleado);
         void ImprimirSexo(char);
-
+        void ImprimirActividad(std::string);
 };
 
 

@@ -6,26 +6,31 @@ int main() {
     Empleado empleadoInicializado1{
              "Juan",
              'M',
+             "Artes"
     };
 
     Empleado empleadoInicializado2{
             "Maria",
             'F',
+            "Ingenieria"
     };
 
     Empleado empleadoInicializado3{
             "Carlos",
             'M',
+            "Matematicas"
     };
 
     Empleado empleadoInicializado4{
             "Janeth",
             'F',
+            "Artes"
     };
 
     Empleado empleadoInicializado5{
             "Marcelo",
             'M',
+            "Artes"
     };
 
     Multilista multilista(6);
@@ -36,7 +41,7 @@ int main() {
     multilista.AgregarEmpleado(empleadoInicializado4);
     multilista.AgregarEmpleado(empleadoInicializado5);
 
-    multilista.ImprimirSexo('M');
+    multilista.ImprimirActividad("Artes");
     // Imprimir los valores para verificar
 
     return 0;

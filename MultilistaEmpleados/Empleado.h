@@ -21,14 +21,14 @@ struct Empleado {
     //std::string direccion;
     //std::string barrio;
     //char tieneHijos;
-    //std::string actividadLaboral;
+    std::string actividadLaboral;
     //int numHijos;
     //std::string sucursalTrabajo;
     //int edad;
 
     //int sigLocalidad{-1};
     int sigSexo{-1};
-   // int sigActividadLaboral{-1};
+    int sigActividadLaboral{-1};
    // int numeroDeHijos{-1};
    // int sigEdad{-1};
     //int nombreSurcursal{-1};
