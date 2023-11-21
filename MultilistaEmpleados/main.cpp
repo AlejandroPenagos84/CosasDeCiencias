@@ -105,9 +105,9 @@ int main() {
     multilista.AgregarEmpleado(empleado4);
     multilista.AgregarEmpleado(empleado5);
 
-    multilista.ModificarAtributo(2,"Ciudad6",4);
+    multilista.ModificarAtributo(2,"Ciudad4",4);
 
-    multilista.ImprimirActividad("Ciudad2");
+    multilista.ImprimirActividad("Ciudad4");
 
     return 0;
 }

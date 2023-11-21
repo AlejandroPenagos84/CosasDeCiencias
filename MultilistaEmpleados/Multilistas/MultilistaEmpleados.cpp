@@ -137,6 +137,7 @@ void MultilistaEmpleados::OrganizarSexo()
     }
 }
 
+/*
 void MultilistaEmpleados::OrganizarPorAtributo(
         RBTree<std::string,int>*& arbol,
         Cabecera<std::string>*& cabecera,
@@ -160,6 +161,7 @@ void MultilistaEmpleados::OrganizarPorAtributo(
         indiceAtributo++;
     }
 }
+*/
 
 void MultilistaEmpleados::OrganizarNumeroHijos() {
     int numHijos = empleados[posLibre].numHijos;
@@ -277,6 +279,12 @@ void MultilistaEmpleados::CambiarAtributo(
         empleados[indiceAnterior].*siguienteIndice = indiceSiguiente;
     }
 
+    if(cabecera[indiceCabecera].indice == -1)
+    {
+        nuevoAtributoIndice--;
+        cabecera[indiceCabecera].atributo = "";
+    }
+
     Reorganizar(arbol,
                 cabecera,
                 atributo,
@@ -284,6 +292,7 @@ void MultilistaEmpleados::CambiarAtributo(
                 siguienteIndice,
                 indiceArrayEmpleado);
 }
+
 
 void MultilistaEmpleados::Reorganizar(RBTree<std::string, int> *&arbol,
                                       Cabecera<std::string> *&cabecera,
@@ -297,7 +306,7 @@ void MultilistaEmpleados::Reorganizar(RBTree<std::string, int> *&arbol,
                         .indice;
         while (empleados[indiceCabecera].*siguienteAtributo != -1)
             indiceCabecera = empleados[indiceCabecera].*siguienteAtributo;
-        empleados[indiceCabecera].*siguienteAtributo = posLibre;
+        empleados[indiceCabecera].*siguienteAtributo = indiceArray;
     } else {
         cabecera[indiceAtributo].atributo = empleados[indiceArray].*atributo;
         cabecera[indiceAtributo].indice = indiceArray;
@@ -307,7 +316,7 @@ void MultilistaEmpleados::Reorganizar(RBTree<std::string, int> *&arbol,
     }
 }
 
-int MultilistaEmpleados::getNumEmpleados() const {return posLibre;}
+int MultilistaEmpleados::getNumEmpleados() const {return size;}
 
 void MultilistaEmpleados::ImprimirSexo(char sexo)
 {
@@ -329,6 +338,7 @@ void MultilistaEmpleados::ImprimirActividad(std::string ciudad) {
         int indiceCabecera = arbolCiudadNacimiento->findNodo(std::move(ciudad))->otroDato;
         int indice = CCiudadNacimiento[indiceCabecera].indice;
 
+
         while (indice != -1) {
             std::cout << empleados[indice].nombre << std::endl;
             std::cout << empleados[indice].sexo << std::endl;
@@ -339,13 +349,13 @@ void MultilistaEmpleados::ImprimirActividad(std::string ciudad) {
     {
         std::cout<<"NO EXISTE"<<std::endl;
     }
-/*
+
     for(int i = 0; i < 5; i++)
     {
         std::cout << empleados[i].nombre << std::endl;
         std::cout << empleados[i].ciudadNacimiento<< std::endl;
         std::cout << empleados[i].sigCiudadNacimiento<< std::endl;
-    }*/
+    }
 }
 
 
