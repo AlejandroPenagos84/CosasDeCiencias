@@ -77,33 +77,38 @@ void MultilistaEmpleados::AgregarEmpleado(Empleado empleado)
     //Organizar Por Sexo
     OrganizarSexo();
     //Organizar Actividad Laboral
-    OrganizarPorAtributo(arbolActividad,
-                         CActividadLaboral,
-                         &Empleado::actividadLaboral,
-                         indiceActividadLaboral,
-                         &Empleado::sigActividadLaboral);
+    Reorganizar(
+            arbolActividad,
+            CActividadLaboral,
+            &Empleado::actividadLaboral,
+            indiceActividadLaboral,
+            &Empleado::sigActividadLaboral,
+            posLibre);
 
     //Organizar por ciudad de nacimiento
-    OrganizarPorAtributo(arbolCiudadNacimiento,
+    Reorganizar(arbolCiudadNacimiento,
                          CCiudadNacimiento,
                          &Empleado::ciudadNacimiento,
                          indiceCiudadNacimiento,
-                         &Empleado::sigCiudadNacimiento);
+                         &Empleado::sigCiudadNacimiento,
+                         posLibre);
 
     //Organizar por Barrio
-    OrganizarPorAtributo(arbolBarrio,
+    Reorganizar(arbolBarrio,
                          CBarrio,
                          &Empleado::barrio,
                          indiceBarrio,
-                         &Empleado::sigBarrio);
+                         &Empleado::sigBarrio,
+                         posLibre);
 
 
     //Organizar Por nombre De Sucursales
-    OrganizarPorAtributo(arbolSucursales,
+    Reorganizar(arbolSucursales,
                          CSucursal,
                          &Empleado::sucursalTrabajo,
                          indiceSucursal,
-                         &Empleado::sigNombreSurcursal);
+                         &Empleado::sigNombreSurcursal,
+                         posLibre);
 
     // Organizar Por Numero de Hijos
     OrganizarNumeroHijos();
@@ -266,7 +271,7 @@ void MultilistaEmpleados::CambiarAtributo(
 
     empleados[indiceArrayEmpleado].*atributo = std::move(nuevoValor);
 
-    if (indiceAnterior == cabecera[indiceCabecera].indice) {
+    if (indiceArreglo == cabecera[indiceCabecera].indice) {
         cabecera[indiceCabecera].indice = indiceSiguiente;
     } else {
         empleados[indiceAnterior].*siguienteIndice = indiceSiguiente;
