@@ -88,7 +88,7 @@ int main() {
     Empleado empleado5{
             "Marcelo",
             'M',
-            "Ciudad2",
+            "Ciudad5",
             "Artes",
             "Sucursal5",
             "Barrio5",
@@ -107,7 +107,7 @@ int main() {
 
     multilista.ModificarAtributo(2,"Ciudad4",4);
 
-    multilista.ImprimirActividad("Ciudad4");
+    multilista.ImprimirActividad("Ciudad5");
 
     return 0;
 }

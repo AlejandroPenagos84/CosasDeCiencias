@@ -306,6 +306,7 @@ void MultilistaEmpleados::Reorganizar(RBTree<std::string, int> *&arbol,
                         .indice;
         while (empleados[indiceCabecera].*siguienteAtributo != -1)
             indiceCabecera = empleados[indiceCabecera].*siguienteAtributo;
+
         empleados[indiceCabecera].*siguienteAtributo = indiceArray;
     } else {
         cabecera[indiceAtributo].atributo = empleados[indiceArray].*atributo;
@@ -349,13 +350,13 @@ void MultilistaEmpleados::ImprimirActividad(std::string ciudad) {
     {
         std::cout<<"NO EXISTE"<<std::endl;
     }
-
+/*
     for(int i = 0; i < 5; i++)
     {
         std::cout << empleados[i].nombre << std::endl;
         std::cout << empleados[i].ciudadNacimiento<< std::endl;
         std::cout << empleados[i].sigCiudadNacimiento<< std::endl;
-    }
+    }*/
 }
 
 
