@@ -46,7 +46,7 @@ int main() {
             "21/12/2001",
 
     };
-    empleado1.hijos.AgregarHijo(hijoInicializado1);
+
 
     Empleado empleado2{
             "Maria",
@@ -58,7 +58,7 @@ int main() {
             1,
             "21/12/2002"
     };
-    empleado2.hijos.AgregarHijo(hijoInicializado2);
+
 
     Empleado empleado3{
             "Carlos",
@@ -70,7 +70,7 @@ int main() {
             1,
             "21/12/2003"
     };
-    empleado3.hijos.AgregarHijo(hijoInicializado3);
+
 
     Empleado empleado4{
             "Janeth",
@@ -83,19 +83,19 @@ int main() {
             "21/12/2004"
     };
 
-    empleado4.hijos.AgregarHijo(hijoInicializado4);
+
 
     Empleado empleado5{
             "Marcelo",
             'M',
-            "Ciudad5",
+            "Ciudad2",
             "Artes",
             "Sucursal5",
             "Barrio5",
             1,
             "21/12/2005"
     };
-    empleado5.hijos.AgregarHijo(hijoInicializado5);
+
 
     MultilistaEmpleados multilista(6);
 
@@ -105,7 +105,9 @@ int main() {
     multilista.AgregarEmpleado(empleado4);
     multilista.AgregarEmpleado(empleado5);
 
-    multilista.ImprimirActividad("Ciudad5");
+    multilista.ModificarAtributo(2,"Ciudad6",4);
+
+    multilista.ImprimirActividad("Ciudad2");
 
     return 0;
 }

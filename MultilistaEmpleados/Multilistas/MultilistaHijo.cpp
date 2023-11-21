@@ -1,5 +1,5 @@
 #include "MultilistaHijo.h"
-
+#include <iostream>
 #include <utility>
 
 MultilistaHijo::MultilistaHijo(int max) {
@@ -9,17 +9,17 @@ MultilistaHijo::MultilistaHijo(int max) {
     // Cabecera de edades
     CEdad = new Cabecera<std::string>[4];
 
-
-    //Posicion Libre
+    // Posicion Libre
     posLibre = 0;
 
-    //Incializar Cabecera de esades
-    CEdad[0] = {"0 a 5",-1};
-    CEdad[1] = {"6 a 10",-1};
-    CEdad[2] = {"11 a 18",-1};
-    CEdad[3] = {"Mas de 18",-1};
+    //size
+    size = 0;
+    // Incializar Cabecera de esades
+    CEdad[0] = {"0 a 5", -1};
+    CEdad[1] = {"6 a 10", -1};
+    CEdad[2] = {"11 a 18", -1};
+    CEdad[3] = {"Mas de 18", -1};
 }
-
 
 void MultilistaHijo::AgregarHijo(Hijo hijo) {
     hijos[posLibre] = std::move(hijo);
@@ -27,11 +27,18 @@ void MultilistaHijo::AgregarHijo(Hijo hijo) {
     posLibre++;
 }
 
-void MultilistaHijo::OrganizarEdad()
-{
+void MultilistaHijo::OrganizarEdad() {
     int edad = hijos[posLibre].edad;
-    int indiceCabecera = (edad >= 0 && edad <= 5) ? 0 : ((edad >= 6 && edad <= 10) ? 1 : ((edad >= 11 && edad <= 18) ? 2 : 3));
+    int indiceCabecera;
 
+    if (edad >= 0 && edad <= 5)
+        indiceCabecera = 0;
+    else if (edad >= 6 && edad <= 10)
+        indiceCabecera = 1;
+    else if (edad >= 11 && edad <= 18)
+        indiceCabecera = 2;
+    else
+        indiceCabecera = 3;
 
     if (CEdad[indiceCabecera].indice == -1) {
         CEdad[indiceCabecera].indice = posLibre;
@@ -53,9 +60,9 @@ void MultilistaHijo::ImprimirEdad(int edad1, int edad2) {
         indiceCabecera = 1;
     } else if (edad1 >= 11 && edad2 <= 18) {
         indiceCabecera = 2;
-    } else if (edad1 >18 && edad2>=edad1){
+    } else if (edad1 > 18 && edad2 >= edad1) {
         indiceCabecera = 3;
-    }else {
+    } else {
         std::cout << "RANGO INVALIDO" << std::endl;
         return;
     }
@@ -63,7 +70,7 @@ void MultilistaHijo::ImprimirEdad(int edad1, int edad2) {
     int indice = CEdad[indiceCabecera].indice;
     while (indice != -1) {
         std::cout << hijos[indice].nombre << std::endl;
-        std::cout << hijos[indice].edad<< std::endl;
+        std::cout << hijos[indice].edad << std::endl;
         indice = hijos[indice].sigEdad;
     }
 }
