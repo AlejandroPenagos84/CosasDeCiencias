@@ -5,26 +5,24 @@
 #include "iostream"
 
 struct Sucursal {
-    int pk;
-    int fk;
+    //int pk;
+    //int fk;
 
     std::string nombre;
     std::string direccion;
     std::string barrio;
     std::string nombreGerente;
+    bool estado;
     MultilistaEmpleados* empleados;
     //List<Empleado> empleados;
 
-    Sucursal() : pk(0), fk(0), nombre(""), direccion(""), barrio(""), nombreGerente(""), empleados(nullptr) {}
+    Sucursal() :nombre(""), direccion(""), barrio(""), nombreGerente(""), estado(true), empleados(nullptr) {}
 
-    Sucursal(int pk,
-             int fk,
-             std::string& nombre,
+    Sucursal(std::string& nombre,
              std::string& direccion,
              std::string& barrio,
-             std::string& nombreGerente,
-             MultilistaEmpleados* empleados)
-        : pk(pk), fk(fk), nombre(nombre), direccion(direccion), barrio(barrio), nombreGerente(nombreGerente) {}
+             std::string& nombreGerente)
+        :nombre(nombre), direccion(direccion), barrio(barrio), nombreGerente(nombreGerente), estado(true) {}
 };
 
 #endif

@@ -175,6 +175,7 @@ void MultilistaEmpleados::AgregarEmpleado(
 //Metodo de eliminar
 void MultilistaEmpleados::Eliminar(int indiceArray) {
     empleados[indiceArray].estado = false;
+    size--;
 }
 
 //getters

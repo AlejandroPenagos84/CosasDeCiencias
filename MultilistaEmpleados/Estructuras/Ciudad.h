@@ -5,15 +5,20 @@
 #ifndef PROYECTO_CIENCIAS_CIUDAD_H
 #define PROYECTO_CIENCIAS_CIUDAD_H
 #include "iostream"
-#include "Sucursal.h"
+#include "../Multilistas/MultilistaSucursales/MultilistaSucursales.h"
 
 struct Ciudad
 {
-    int pk;
-    int fk;
+    //int pk;
+    //int fk;
     std::string nombre;
-    //List<Sucursal> sucursales;
+    bool estado;
+    MultilistaSucursales* sucursales;
 
+    Ciudad() : nombre(""), estado(true), sucursales(nullptr) {}
+
+    Ciudad(std::string& nombre)
+        : nombre(nombre), estado(true) {}
 
 };
 #endif //PROYECTO_CIENCIAS_CIUDAD_H

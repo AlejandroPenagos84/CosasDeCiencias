@@ -23,4 +23,7 @@ add_executable(MultilistaEmpleados main.cpp
         Estructuras/Pais.h
         Multilistas/MultilistaCiudades/MultilistaCiudad.h
         Multilistas/MultilistaPaises/MultilistaPaises.h
-        Multilistas/MultilistaSucursales/MultilistaSucursales.h)
+        Multilistas/MultilistaSucursales/MultilistaSucursales.h
+        Multilistas/MultilistaSucursales/MultilistaSucursales.cpp
+        Multilistas/MultilistaCiudades/MultilistaCiudad.cpp
+        Multilistas/MultilistaPaises/MultilistaPaises.cpp)
