@@ -9,20 +9,20 @@ struct Empleado {
     //int fk;
 
     std::string nombre;
-    //std::string apellido;
-    //std::string tipoIdentificacion;
-    //std::string numIdentificacion;
+    std::string apellido;
+    std::string tipoIdentificacion;
+    std::string numIdentificacion;
     char sexo;
-    //std::string telefonoCelular;
-    //std::string telefonoFijo;
-    //std::string email;
+    std::string telefonoCelular;
+    std::string telefonoFijo;
+    std::string email;
 
     std::string ciudadNacimiento;
-    //std::string paisNacimiento;
-    //std::string ciudadResidencia;
-    //std::string direccion;
+    std::string paisNacimiento;
+    std::string ciudadResidencia;
+    std::string direccion;
     //
-    //char tieneHijos;
+    char tieneHijos;
     std::string actividadLaboral;
     std::string sucursalTrabajo;
     std::string barrio;

@@ -217,6 +217,81 @@ void MultilistaEmpleados::ModificarCategoria(int num, int valor, int indice) {
     }
 }
 
+void MultilistaEmpleados::ModificarS(int num, int indice, std::string nuevoDato)
+{
+    switch (num) {
+        case 1:
+            CambiarS(&Empleado::nombre,indice,std::move(nuevoDato));
+            break;
+
+        case 2:
+            CambiarS(&Empleado::apellido,indice,std::move(nuevoDato));
+            break;
+
+        case 3:
+            CambiarS(&Empleado::tipoIdentificacion,indice,std::move(nuevoDato));
+            break;
+
+        case 4:
+            CambiarS(&Empleado::numIdentificacion,indice,std::move(nuevoDato));
+            break;
+
+        case 5:
+            CambiarS(&Empleado::telefonoCelular,indice,std::move(nuevoDato));
+            break;
+
+        case 6:
+            CambiarS(&Empleado::telefonoFijo,indice,std::move(nuevoDato));
+            break;
+
+        case 7:
+            CambiarS(&Empleado::email,indice,std::move(nuevoDato));
+            break;
+
+        case 8:
+            CambiarS(&Empleado::paisNacimiento,indice,std::move(nuevoDato));
+            break;
+
+        case 9:
+            CambiarS(&Empleado::ciudadResidencia,indice,std::move(nuevoDato));
+            break;
+
+        case 10:
+            CambiarS(&Empleado::direccion,indice,std::move(nuevoDato));
+            // Procesar direccion
+            break;
+
+        default:
+            // Opción por defecto, si no coincide con ninguna de las anteriores
+            break;
+    }
+
+}
+
+void MultilistaEmpleados::ModificarC(int num, int indice, char nuevoDato) {
+    switch (num) {
+        case 1:
+            CambiarC(&Empleado::sexo, indice, (nuevoDato));
+            break;
+
+        case 2:
+            CambiarC(&Empleado::tieneHijos, indice, nuevoDato);
+            break;
+        default:
+            break;
+    }
+}
+
+void MultilistaEmpleados::CambiarS(std::string Empleado::*atributo, int indiceArray, std::string nuevoDato)
+{
+    empleados[indiceArray].*atributo = std::move(nuevoDato);
+}
+
+void MultilistaEmpleados::CambiarC(char Empleado::*atributo, int indiceArray, char nuevoDato)
+{
+    empleados[indiceArray].*atributo = nuevoDato;
+}
+
 void MultilistaEmpleados::OrganizarSexo(int indiceArrayEmpleado) {
     int indiceSexo = (empleados[indiceArrayEmpleado].sexo == 'M') ? 0 : 1;
 

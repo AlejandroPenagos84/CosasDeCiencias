@@ -54,6 +54,8 @@ public:
     void AgregarEmpleado(Empleado);
     void ModificarAtributo(int,  std::string &, int);
     void ModificarCategoria(int num, int valor, int indice);
+    void ModificarS(int num,int indice, std::string nuevoDato);
+    void ModificarC(int num,int indice, char nuevoDato);
     int getNumEmpleados() const;
     void ImprimirSexo(char);
     void ImprimirActividad(std::string);
@@ -98,7 +100,10 @@ private:
             int indiceCabeceraAntigua,
             int (MultilistaEmpleados::*getCabecera)(int));
 
+    void CambiarS(std::string Empleado::*atributo, int indiceArray, std::string nuevoDato);
+    void CambiarC(char  Empleado::*atributo, int indiceArray, char nuevoDato);
     int getCabeceraNumHijos(int indiceArray);
     int getCabeceraEdad(int indiceArray);
+    void CambiarS(std::string *atributo, int indiceArray, std::string nuevoDato);
 };
 #endif

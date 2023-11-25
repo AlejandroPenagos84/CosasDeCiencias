@@ -31,7 +31,7 @@ private:
             int indiceCabeceraAntigua,
             int (MultilistaHijo::*getCabecera)(int));
     int getCabeceraEdad(int indiceArray);
-    void OrganizarEdad();
+
 };
 
 #endif

@@ -32,21 +32,32 @@ void MultilistaHijo::AgregarHijo(Hijo hijo) {
     size++;
 }
 
+void MultilistaHijo::ModificarCategoria(int num, int valor, int indice) {
+    if (num == 1) {
+        CambiarCategoria(CEdad,
+                         &Hijo::edad,
+                         valor,
+                         &Hijo::sigEdad,
+                         indice,
+                         getCabeceraEdad(hijos[indice].edad),
+                         &MultilistaHijo::getCabeceraEdad);
+    }
+}
+
 void MultilistaHijo::OrganizarCategoria(Cabecera<std::string> *&cabecera,
                                         int indiceArray,
                                         int Hijo::*siguienteIndice,
-                                        int indiceCabecera)
-{
+                                        int indiceCabecera) {
 
-        if (cabecera[indiceCabecera].indice == -1) {
-            cabecera[indiceCabecera].indice = indiceArray;
-        } else {
-            int indiceC = cabecera[indiceCabecera].indice;
-            while (hijos[indiceC].*siguienteIndice != -1)
-                indiceC = hijos[indiceC].*siguienteIndice;
+    if (cabecera[indiceCabecera].indice == -1) {
+        cabecera[indiceCabecera].indice = indiceArray;
+    } else {
+        int indiceC = cabecera[indiceCabecera].indice;
+        while (hijos[indiceC].*siguienteIndice != -1)
+            indiceC = hijos[indiceC].*siguienteIndice;
 
-            hijos[indiceC].*siguienteIndice = indiceArray;
-        }
+        hijos[indiceC].*siguienteIndice = indiceArray;
+    }
 }
 
 void MultilistaHijo::CambiarCategoria(Cabecera<std::string> *&cabecera,
@@ -55,8 +66,7 @@ void MultilistaHijo::CambiarCategoria(Cabecera<std::string> *&cabecera,
                                       int Hijo::*siguienteIndice,
                                       int indiceArray,
                                       int indiceCabeceraAntigua,
-                                      int (MultilistaHijo::*getCabecera)(int))
-{
+                                      int (MultilistaHijo::*getCabecera)(int)) {
     int indiceAnterior;
     int indiceSiguiente;
     int indiceArreglo = cabecera[indiceCabeceraAntigua].indice;
