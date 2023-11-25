@@ -79,6 +79,12 @@ build CMakeFiles/MultilistaEmpleados.dir/Multilistas/MultilistaEmpleados/Modific
   OBJECT_DIR = CMakeFiles\MultilistaEmpleados.dir
   OBJECT_FILE_DIR = CMakeFiles\MultilistaEmpleados.dir\Multilistas\MultilistaEmpleados
 
+build CMakeFiles/MultilistaEmpleados.dir/Multilistas/MultilistaEmpleados/Imprimir.cpp.obj: CXX_COMPILER__MultilistaEmpleados_unscanned_Debug C$:/Users/Alejandro$ Penagos/Desktop/CosasEspecificas$ XD/MultilistaEmpleados/Multilistas/MultilistaEmpleados/Imprimir.cpp || cmake_object_order_depends_target_MultilistaEmpleados
+  DEP_FILE = CMakeFiles\MultilistaEmpleados.dir\Multilistas\MultilistaEmpleados\Imprimir.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\MultilistaEmpleados.dir
+  OBJECT_FILE_DIR = CMakeFiles\MultilistaEmpleados.dir\Multilistas\MultilistaEmpleados
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target MultilistaEmpleados
@@ -87,7 +93,7 @@ build CMakeFiles/MultilistaEmpleados.dir/Multilistas/MultilistaEmpleados/Modific
 #############################################
 # Link the executable MultilistaEmpleados.exe
 
-build MultilistaEmpleados.exe: CXX_EXECUTABLE_LINKER__MultilistaEmpleados_Debug CMakeFiles/MultilistaEmpleados.dir/main.cpp.obj CMakeFiles/MultilistaEmpleados.dir/Multilistas/MultilistaEmpleados/MultilistaEmpleados.cpp.obj CMakeFiles/MultilistaEmpleados.dir/Multilistas/MultilistaHijo.cpp.obj CMakeFiles/MultilistaEmpleados.dir/Multilistas/MultilistaEmpleados/Organizar.cpp.obj CMakeFiles/MultilistaEmpleados.dir/Multilistas/MultilistaEmpleados/Modificar.cpp.obj
+build MultilistaEmpleados.exe: CXX_EXECUTABLE_LINKER__MultilistaEmpleados_Debug CMakeFiles/MultilistaEmpleados.dir/main.cpp.obj CMakeFiles/MultilistaEmpleados.dir/Multilistas/MultilistaEmpleados/MultilistaEmpleados.cpp.obj CMakeFiles/MultilistaEmpleados.dir/Multilistas/MultilistaHijo.cpp.obj CMakeFiles/MultilistaEmpleados.dir/Multilistas/MultilistaEmpleados/Organizar.cpp.obj CMakeFiles/MultilistaEmpleados.dir/Multilistas/MultilistaEmpleados/Modificar.cpp.obj CMakeFiles/MultilistaEmpleados.dir/Multilistas/MultilistaEmpleados/Imprimir.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\MultilistaEmpleados.dir

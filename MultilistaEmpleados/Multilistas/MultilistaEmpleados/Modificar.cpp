@@ -1,5 +1,6 @@
 #include "MultilistaEmpleados.h"
 
+//Metodos publicos que implementan los metodos de cambiar
 /**
  * Metodo publico donde se modifica un atributo de los string
  * @param num
@@ -91,6 +92,13 @@ void MultilistaEmpleados::ModificarCategoria(int num, int valor, int indice) {
     }
 }
 
+/**
+ * Metodo para modificar todos los valores que no tengan String y que además no hagan
+ * parte de alguna cabecera
+ * @param num
+ * @param indice
+ * @param nuevoDato
+ */
 void MultilistaEmpleados::ModificarS(int num, int indice, std::string nuevoDato)
 {
     switch (num) {
@@ -141,6 +149,12 @@ void MultilistaEmpleados::ModificarS(int num, int indice, std::string nuevoDato)
     }
 }
 
+/**
+ * Metodo para eliminar los valores char
+ * @param num
+ * @param indice
+ * @param nuevoDato
+ */
 void MultilistaEmpleados::ModificarC(int num, int indice, char nuevoDato) {
     switch (num) {
         case 1:
@@ -155,16 +169,43 @@ void MultilistaEmpleados::ModificarC(int num, int indice, char nuevoDato) {
     }
 }
 
+
+
+// Metodo privados con los que cambio los atributos
+/**
+ * Metodo para cambiar un atributo especifico tipo string
+ * @param atributo
+ * @param indiceArray
+ * @param nuevoDato
+ */
 void MultilistaEmpleados::CambiarS(std::string Empleado::*atributo, int indiceArray, std::string nuevoDato)
 {
     empleados[indiceArray].*atributo = std::move(nuevoDato);
 }
 
+/**
+ * Metodo para cambiar un atributo especifico tipo char
+ * @param atributo
+ * @param indiceArray
+ * @param nuevoDato
+ */
 void MultilistaEmpleados::CambiarC(char Empleado::*atributo, int indiceArray, char nuevoDato)
 {
     empleados[indiceArray].*atributo = nuevoDato;
 }
 
+/**
+ * Metodo para cambiar un atributo y reubicarlo en la lista de cabeceras
+ * Este metodo es para los datos tipo string, donde no existe un rango
+ * @param arbol
+ * @param atributo
+ * @param nuevoValor
+ * @param siguienteIndice
+ * @param cabecera
+ * @param indiceArrayEmpleado
+ * @param indiceCabecera
+ * @param nuevoAtributoIndice
+ */
 void MultilistaEmpleados::CambiarAtributo(
         RBTree<std::string, int> *&arbol,// Arbol del atributo
         std::string Empleado::*atributo, // Puntero al atributo
@@ -210,6 +251,17 @@ void MultilistaEmpleados::CambiarAtributo(
                 indiceArrayEmpleado);
 }
 
+/**
+* Metodo para cambiar un atributo y reubicarlo en la lista de cabeceras
+* Este metodo es para los datos tipo string, donde ya existe un rango
+ * @param cabecera
+ * @param atributo
+ * @param valor
+ * @param siguienteIndice
+ * @param indiceArray
+ * @param indiceCabeceraAntigua
+ * @param getCabecera
+ */
 void MultilistaEmpleados::CambiarCategoria(Cabecera<std::string> *&cabecera,
                                            int Empleado::*atributo,
                                            int valor,

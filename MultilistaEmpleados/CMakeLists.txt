@@ -16,4 +16,5 @@ add_executable(MultilistaEmpleados main.cpp
         Multilistas/MultilistaHijo.cpp
         Librerias/Cabecera.h
         Multilistas/MultilistaEmpleados/Organizar.cpp
-        Multilistas/MultilistaEmpleados/Modificar.cpp)
+        Multilistas/MultilistaEmpleados/Modificar.cpp
+        Multilistas/MultilistaEmpleados/Imprimir.cpp)
