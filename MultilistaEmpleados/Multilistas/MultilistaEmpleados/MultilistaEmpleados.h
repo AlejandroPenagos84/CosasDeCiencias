@@ -1,8 +1,8 @@
 #ifndef MULTILISTAEMPLEADOS_H
 #define MULTILISTAEMPLEADOS_H
-#include "../Estructuras/Empleado.h"
-#include "../Librerias/Arbol.h"
-#include "../Librerias/Cabecera.h"
+#include "../../Estructuras/Empleado.h"
+#include "../../Librerias/Arbol.h"
+#include "../../Librerias/Cabecera.h"
 
 class MultilistaEmpleados {
 private:
@@ -100,10 +100,12 @@ private:
             int indiceCabeceraAntigua,
             int (MultilistaEmpleados::*getCabecera)(int));
 
+    void Eliminar(int indiceArray);
     void CambiarS(std::string Empleado::*atributo, int indiceArray, std::string nuevoDato);
     void CambiarC(char  Empleado::*atributo, int indiceArray, char nuevoDato);
     int getCabeceraNumHijos(int indiceArray);
     int getCabeceraEdad(int indiceArray);
     void CambiarS(std::string *atributo, int indiceArray, std::string nuevoDato);
 };
+
 #endif

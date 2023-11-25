@@ -28,6 +28,7 @@ struct Empleado {
     std::string barrio;
     int numHijos;
     std::string fechaNacimiento;
+    bool estado{true};
     //MultilistaHijo hijos{numHijos};
     int edad = calcularEdad(obtenerFechaDesdeString(fechaNacimiento));
 

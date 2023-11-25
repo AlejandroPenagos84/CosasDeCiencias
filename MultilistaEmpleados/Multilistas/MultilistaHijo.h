@@ -14,6 +14,7 @@ public:
     explicit MultilistaHijo(int);
     void AgregarHijo(Hijo);
     void ModificarCategoria(int num, int valor, int indice);
+    void Eliminar(int indiceArray);
     void ImprimirEdad(int, int);
 
 private:

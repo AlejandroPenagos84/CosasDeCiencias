@@ -1,6 +1,4 @@
 # ninja log v5
-5	1446	7221288043598468	CMakeFiles/MultilistaEmpleados.dir/Multilista.cpp.obj	d5f3527eea99e7ff
 6	800	7221287713948771	CMakeFiles/MultilistaEmpleados.dir/main.cpp.obj	5cf6e2b03b7c1b18
 1447	1699	7221288046112226	MultilistaEmpleados.exe	9eebb45009878c30
-1	264	7221305997137477	build.ninja	41c300cb7ae1258b
-4	663	7221264790234059	CMakeFiles/MultilistaEmpleados.dir/MultilistaHijo.cpp.obj	5df014814383cbb6
+1	264	7225812222341816	build.ninja	41c300cb7ae1258b

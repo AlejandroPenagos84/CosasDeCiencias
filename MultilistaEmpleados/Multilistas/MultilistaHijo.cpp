@@ -110,6 +110,9 @@ int MultilistaHijo::getCabeceraEdad(int indiceArray) {
     return indiceCabecera;
 }
 
+void MultilistaHijo::Eliminar(int indiceArray) {
+    hijos[indiceArray].estado = false;
+}
 
 void MultilistaHijo::ImprimirEdad(int edad1, int edad2) {
     int indiceCabecera;

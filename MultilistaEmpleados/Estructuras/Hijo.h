@@ -4,8 +4,9 @@
 #include <string>
 struct Hijo
 {
-    std::string nombre;
-    std::string fechaNacimiento;
+    std::string nombre{};
+    std::string fechaNacimiento{};
+    bool estado{true};
     int edad = calcularEdad(obtenerFechaDesdeString(fechaNacimiento));
 
     int sigEdad{-1};
