@@ -52,32 +52,53 @@ public:
 
     explicit MultilistaEmpleados(int);
     void AgregarEmpleado(Empleado);
+    void ModificarAtributo(int,  std::string &, int);
+    void ModificarCategoria(int num, int valor, int indice);
     int getNumEmpleados() const;
     void ImprimirSexo(char);
     void ImprimirActividad(std::string);
     void ImprimirEmpleadosPorNumHijos(int, int);
-    void ModificarAtributo(int, const std::string&,int);
+
+
 private:
     // Estos son los métodos privado con los que organizo la informacion en la
     // multilista
 
+    // Método Simples con los que se organizarán los datos
+    void OrganizarSexo(int indiceArrayEmpleado);
+
+    void Reorganizar(RBTree<std::string, int> *&arbol,
+                     Cabecera<std::string> *&cabecera,
+                     std::string Empleado::*atributo,
+                     int &indiceAtributo,
+                     int Empleado::*siguienteAtributo,
+                     int indiceArray);
+
+    void OrganizarCategoria(Cabecera<std::string> *&cabecera,
+                            int indiceArray,
+                            int Empleado::*siguienteIndice,
+                            int indiceCabecera);
+
     void CambiarAtributo(
-            RBTree<std::string, int>*&,
-            std::string Empleado::*,
-            std::string,
-            int Empleado::*,
-            Cabecera<std::string>*&,
-            int,
-            int,
-            int&);
-    void OrganizarSexo();
-    void OrganizarPorAtributo(RBTree<std::string, int> *&,
-                              Cabecera<std::string> *&, std::string Empleado::*,
-                              int &, int Empleado::*);
-    void OrganizarNumeroHijos();
-    void OrganizarEdad();
-    void Reorganizar(RBTree<std::string, int> *&,
-                     Cabecera<std::string> *&, std::string Empleado::*,
-                     int &, int Empleado::*,int);
+            RBTree<std::string, int> *&arbol,// Arbol del atributo
+            std::string Empleado::*atributo, // Puntero al atributo
+            std::string nuevoValor,          // Valor del nuevo atributo
+            int Empleado::*siguienteIndice,  // Puntero al siguiente índice
+            Cabecera<std::string> *&cabecera,// Cabecera
+            int indiceArrayEmpleado,         // Posición del empleado en el array
+            int indiceCabecera,              // Índice de la cabecera
+            int &nuevoAtributoIndice);       // Índice que hace referencia a los índices de las
+                                             //cabecera
+    void CambiarCategoria(
+            Cabecera<std::string> *&cabecera,//Cabecera del atributo
+            int Empleado::*atributo,         //Atributo que se cambiará
+            int valor,
+            int Empleado::*siguienteIndice,// Indice del atributo que se cambiará
+            int indiceArray,
+            int indiceCabeceraAntigua,
+            int (MultilistaEmpleados::*getCabecera)(int));
+
+    int getCabeceraNumHijos(int indiceArray);
+    int getCabeceraEdad(int indiceArray);
 };
 #endif

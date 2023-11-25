@@ -41,6 +41,7 @@ struct Empleado {
     int sigCiudadNacimiento{-1};
     int sigBarrio{-1};
     int sigNumHijos{-1};
+
 };
 
 

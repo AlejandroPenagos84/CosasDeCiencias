@@ -51,7 +51,7 @@ int main() {
     Empleado empleado2{
             "Maria",
             'F',
-            "Ciudad2",
+            "Ciudad1",
             "Matematicas",
             "Sucursal2",
             "Barrio2",
@@ -63,7 +63,7 @@ int main() {
     Empleado empleado3{
             "Carlos",
             'M',
-            "Ciudad3",
+            "Ciudad1",
             "Artes",
             "Sucursal3",
             "Barrio3",
@@ -75,7 +75,7 @@ int main() {
     Empleado empleado4{
             "Janeth",
             'F',
-            "Ciudad4",
+            "Ciudad1",
             "Artes",
             "Sucursal4",
             "Barrio4",
@@ -88,7 +88,7 @@ int main() {
     Empleado empleado5{
             "Marcelo",
             'M',
-            "Ciudad5",
+            "Ciudad1",
             "Artes",
             "Sucursal5",
             "Barrio5",
@@ -105,9 +105,9 @@ int main() {
     multilista.AgregarEmpleado(empleado4);
     multilista.AgregarEmpleado(empleado5);
 
-    multilista.ModificarAtributo(2,"Ciudad4",4);
+    multilista.ModificarCategoria(1,4,4);
 
-    multilista.ImprimirActividad("Ciudad5");
+    multilista.ImprimirEmpleadosPorNumHijos(3,4);
 
     return 0;
 }
