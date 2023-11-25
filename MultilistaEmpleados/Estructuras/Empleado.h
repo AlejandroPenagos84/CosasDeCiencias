@@ -1,7 +1,7 @@
 #ifndef EMPLEADO_H
 #define EMPLEADO_H
 #include "../Librerias/Edad.h"
-#include "../Multilistas/MultilistaHijo.h"
+#include "../Multilistas/MultilistaHijos/MultilistaHijo.h"
 #include <string>
 
 struct Empleado {
@@ -62,7 +62,8 @@ struct Empleado {
                  numHijos(0),
                  fechaNacimiento(""),
                  estado(true),
-                 edad(0) {}
+                 edad(0) ,
+                 hijos(nullptr){}
 
     // Constructor para inicializar los datos de un empleado
     Empleado(std::string nombre,

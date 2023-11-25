@@ -1,6 +1,6 @@
 #include "Estructuras/Empleado.h"
 #include "Multilistas/MultilistaEmpleados/MultilistaEmpleados.h"
-#include "Multilistas/MultilistaHijo.h"
+#include "Multilistas/MultilistaHijos/MultilistaHijo.h"
 #include <iostream>
 
 int main() {

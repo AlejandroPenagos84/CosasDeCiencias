@@ -1,0 +1,13 @@
+//
+// Created by Alejandro Penagos on 25/11/2023.
+//
+
+#ifndef MULTILISTAEMPLEADOS_MULTILISTACIUDAD_H
+#define MULTILISTAEMPLEADOS_MULTILISTACIUDAD_H
+
+
+class MultilistaCiudad {
+};
+
+
+#endif//MULTILISTAEMPLEADOS_MULTILISTACIUDAD_H

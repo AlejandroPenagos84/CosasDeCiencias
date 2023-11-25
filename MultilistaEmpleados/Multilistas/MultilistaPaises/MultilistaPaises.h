@@ -1,0 +1,13 @@
+//
+// Created by Alejandro Penagos on 25/11/2023.
+//
+
+#ifndef MULTILISTAEMPLEADOS_MULTILISTAPAISES_H
+#define MULTILISTAEMPLEADOS_MULTILISTAPAISES_H
+
+
+class MultilistaPaises {
+};
+
+
+#endif//MULTILISTAEMPLEADOS_MULTILISTAPAISES_H
