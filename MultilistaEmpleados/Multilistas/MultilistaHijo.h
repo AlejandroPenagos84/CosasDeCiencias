@@ -12,7 +12,7 @@ private:
 
 public:
     explicit MultilistaHijo(int);
-    void AgregarHijo(Hijo);
+    void AgregarHijo(std::string nombre, std::string fechaNacimiento);
     void ModificarCategoria(int num, int valor, int indice);
     void Eliminar(int indiceArray);
     void ImprimirEdad(int, int);

@@ -53,7 +53,25 @@ public:
     explicit MultilistaEmpleados(int);
 
     //Metodo para agregar un empleado
-    void AgregarEmpleado(Empleado);
+    void AgregarEmpleado(std::string nombre,
+                         std::string apellido,
+                         std::string tipoIdentificacion,
+                         std::string numIdentificacion,
+                         char sexo,
+                         std::string telefonoCelular,
+                         std::string telefonoFijo,
+                         std::string email,
+                         std::string ciudadNacimiento,
+                         std::string paisNacimiento,
+                         std::string ciudadResidencia,
+                         std::string direccion,
+                         char tieneHijos,
+                         std::string actividadLaboral,
+                         std::string sucursalTrabajo,
+                         std::string barrio,
+                         int numHijos,
+                         std::string fechaNacimiento);
+
 
     //Metodos para modificar atributos de un empleado
     void ModificarAtributo(int,  std::string &, int);

@@ -22,7 +22,10 @@ MultilistaHijo::MultilistaHijo(int max) {
     CEdad[3] = {"Mas de 18", -1};
 }
 
-void MultilistaHijo::AgregarHijo(Hijo hijo) {
+void MultilistaHijo::AgregarHijo(std::string nombre, std::string fechaNacimiento) {
+
+    Hijo hijo(std::move(nombre),std::move(fechaNacimiento));
+    
     hijos[posLibre] = std::move(hijo);
     OrganizarCategoria(CEdad,
                        posLibre,

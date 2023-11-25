@@ -10,5 +10,16 @@ struct Hijo
     int edad = calcularEdad(obtenerFechaDesdeString(fechaNacimiento));
 
     int sigEdad{-1};
+
+
+    Hijo():nombre(), fechaNacimiento(){}
+
+    Hijo(std::string nombre, std::string fechaNacimiento)
+        : nombre(std::move(nombre)), fechaNacimiento(std::move(fechaNacimiento))
+    {
+        // Supongo que calcularEdad y obtenerFechaDesdeString están definidas
+        edad = calcularEdad(obtenerFechaDesdeString(fechaNacimiento));
+    }
+
 };
-#endif //MULTILISTAEMPLEADOS_HIJO_H
+#endif

@@ -69,8 +69,54 @@ MultilistaEmpleados::MultilistaEmpleados(int max) {
  * Aqui se agrega un empleado a lista e invoco todos los metodo privados para organizar los datos
  * @param empleado Empleado
  */
-void MultilistaEmpleados::AgregarEmpleado(Empleado empleado) {
+
+// La razon por la que tiene tanto parametro es para respetar la ley de demeter
+// y poder implementarlo con el patron DAO, para los archivos, hice algo parecido
+// para un programa con chile de programacion avanzada, ahi lo que haria seria una inyeccion de
+// dependencias para llenar esa multilista
+void MultilistaEmpleados::AgregarEmpleado(
+        std::string nombre,
+        std::string apellido,
+        std::string tipoIdentificacion,
+        std::string numIdentificacion,
+        char sexo,
+        std::string telefonoCelular,
+        std::string telefonoFijo,
+        std::string email,
+        std::string ciudadNacimiento,
+        std::string paisNacimiento,
+        std::string ciudadResidencia,
+        std::string direccion,
+        char tieneHijos,
+        std::string actividadLaboral,
+        std::string sucursalTrabajo,
+        std::string barrio,
+        int numHijos,
+        std::string fechaNacimiento) {
+
+    Empleado empleado(
+            std::move(nombre),
+            std::move(apellido),
+            std::move(tipoIdentificacion),
+            std::move(numIdentificacion),
+            sexo,
+            std::move(telefonoCelular),
+            std::move(telefonoFijo),
+            std::move(email),
+            std::move(ciudadNacimiento),
+            std::move(paisNacimiento),
+            std::move(ciudadResidencia),
+            std::move(direccion),
+            tieneHijos,
+            std::move(actividadLaboral),
+            std::move(sucursalTrabajo),
+            std::move(barrio),
+            numHijos,
+            std::move(fechaNacimiento));
+
+    empleado.hijos = new MultilistaHijo(numHijos);
     empleados[posLibre] = std::move(empleado);
+
 
     //Organizar Por Sexo
     OrganizarSexo(posLibre);
@@ -126,11 +172,12 @@ void MultilistaEmpleados::AgregarEmpleado(Empleado empleado) {
     size++;
 }
 
-
+//Metodo de eliminar
 void MultilistaEmpleados::Eliminar(int indiceArray) {
     empleados[indiceArray].estado = false;
 }
 
+//getters
 int MultilistaEmpleados::getCabeceraNumHijos(int indiceArray) {
     int numHijos = empleados[indiceArray].numHijos;
     int indiceCabecera;
@@ -158,14 +205,12 @@ int MultilistaEmpleados::getCabeceraEdad(int indiceArray) {
         indiceCabecera = 1;
     else if (edad >= 36 && edad <= 45)
         indiceCabecera = 2;
-    else if(edad >=46 && edad<=60)
+    else if (edad >= 46 && edad <= 60)
         indiceCabecera = 3;
     else
         indiceCabecera = 4;
 
     return indiceCabecera;
-
 }
 
 int MultilistaEmpleados::getNumEmpleados() const { return size; }
-
