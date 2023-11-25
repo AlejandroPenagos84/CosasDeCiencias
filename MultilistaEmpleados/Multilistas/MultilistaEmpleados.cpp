@@ -371,19 +371,22 @@ int MultilistaEmpleados::getCabeceraNumHijos(int indiceArray) {
 }
 
 int MultilistaEmpleados::getCabeceraEdad(int indiceArray) {
-    int numHijos = empleados[indiceArray].numHijos;
+    int edad = empleados[indiceArray].edad;
     int indiceCabecera;
 
-    if (numHijos == 0)
+    if (edad >= 18 && edad <= 24)
         indiceCabecera = 0;
-    else if (numHijos <= 2)
+    else if (edad >= 25 && edad <= 35)
         indiceCabecera = 1;
-    else if (numHijos <= 4)
+    else if (edad >= 36 && edad <= 45)
         indiceCabecera = 2;
-    else
+    else if(edad >=46 && edad<=60)
         indiceCabecera = 3;
+    else
+        indiceCabecera = 4;
 
     return indiceCabecera;
+
 }
 
 int MultilistaEmpleados::getNumEmpleados() const { return size; }
@@ -417,11 +420,10 @@ void MultilistaEmpleados::ImprimirActividad(std::string ciudad) {
         std::cout << "NO EXISTE" << std::endl;
     }
 
-    for(int i = 0; i < 5; i++)
-    {
+    for (int i = 0; i < 5; i++) {
         std::cout << empleados[i].nombre << std::endl;
-        std::cout << empleados[i].ciudadNacimiento<< std::endl;
-        std::cout << empleados[i].sigCiudadNacimiento<< std::endl;
+        std::cout << empleados[i].ciudadNacimiento << std::endl;
+        std::cout << empleados[i].sigCiudadNacimiento << std::endl;
     }
 }
 

@@ -14,6 +14,7 @@ MultilistaHijo::MultilistaHijo(int max) {
 
     //size
     size = 0;
+
     // Incializar Cabecera de esades
     CEdad[0] = {"0 a 5", -1};
     CEdad[1] = {"6 a 10", -1};
@@ -23,12 +24,68 @@ MultilistaHijo::MultilistaHijo(int max) {
 
 void MultilistaHijo::AgregarHijo(Hijo hijo) {
     hijos[posLibre] = std::move(hijo);
-    OrganizarEdad();
+    OrganizarCategoria(CEdad,
+                       posLibre,
+                       &Hijo::sigEdad,
+                       getCabeceraEdad(posLibre));
     posLibre++;
+    size++;
 }
 
-void MultilistaHijo::OrganizarEdad() {
-    int edad = hijos[posLibre].edad;
+void MultilistaHijo::OrganizarCategoria(Cabecera<std::string> *&cabecera,
+                                        int indiceArray,
+                                        int Hijo::*siguienteIndice,
+                                        int indiceCabecera)
+{
+
+        if (cabecera[indiceCabecera].indice == -1) {
+            cabecera[indiceCabecera].indice = indiceArray;
+        } else {
+            int indiceC = cabecera[indiceCabecera].indice;
+            while (hijos[indiceC].*siguienteIndice != -1)
+                indiceC = hijos[indiceC].*siguienteIndice;
+
+            hijos[indiceC].*siguienteIndice = indiceArray;
+        }
+}
+
+void MultilistaHijo::CambiarCategoria(Cabecera<std::string> *&cabecera,
+                                      int Hijo::*atributo,
+                                      int valor,
+                                      int Hijo::*siguienteIndice,
+                                      int indiceArray,
+                                      int indiceCabeceraAntigua,
+                                      int (MultilistaHijo::*getCabecera)(int))
+{
+    int indiceAnterior;
+    int indiceSiguiente;
+    int indiceArreglo = cabecera[indiceCabeceraAntigua].indice;
+
+    indiceAnterior = indiceArreglo;
+    indiceSiguiente = hijos[indiceArreglo].*siguienteIndice;
+
+    while (indiceArreglo != indiceArray) {
+        indiceAnterior = indiceArreglo;
+        indiceArreglo = hijos[indiceArreglo].*siguienteIndice;
+        indiceSiguiente = hijos[indiceArreglo].*siguienteIndice;
+    }
+
+    hijos[indiceArray].*atributo = valor;
+
+    if (indiceArreglo == cabecera[indiceCabeceraAntigua].indice)
+        cabecera[indiceCabeceraAntigua].indice = indiceSiguiente;
+    else {
+        hijos[indiceArreglo].*siguienteIndice = indiceSiguiente;
+    }
+
+    OrganizarCategoria(cabecera,
+                       indiceArray,
+                       siguienteIndice,
+                       (this->*getCabecera)(indiceArray));
+}
+
+int MultilistaHijo::getCabeceraEdad(int indiceArray) {
+    int edad = hijos[indiceArray].edad;
     int indiceCabecera;
 
     if (edad >= 0 && edad <= 5)
@@ -40,16 +97,9 @@ void MultilistaHijo::OrganizarEdad() {
     else
         indiceCabecera = 3;
 
-    if (CEdad[indiceCabecera].indice == -1) {
-        CEdad[indiceCabecera].indice = posLibre;
-    } else {
-        int indiceC = CEdad[indiceCabecera].indice;
-        while (hijos[indiceC].sigEdad != -1)
-            indiceC = hijos[indiceC].sigEdad;
-
-        hijos[indiceC].sigEdad = posLibre;
-    }
+    return indiceCabecera;
 }
+
 
 void MultilistaHijo::ImprimirEdad(int edad1, int edad2) {
     int indiceCabecera;
